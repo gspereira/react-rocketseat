@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import api from '../../services/api'
-import { arrayExpression } from '@babel/types';
 
 import './styles.css';
 
@@ -22,14 +21,19 @@ export default class Main extends Component{
     render(){
         const { products } = this.state;
         return(
-            <div className='product-lis'>
+            <div className='product-list'>
                 {products.map( product => ( 
                     <article key={product._id}>
                         <strong>{product.title}</strong>
-                        <p>product.description</p>
+                        <p>{product.description}</p>
                         <a href={product.url}>Acessar Produto</a>
                     </article>
                 ))}
+            
+                <div className='actions'>
+                    <button> Anterior </button>
+                    <button> Próxima </button>
+                </div>
             </div>
         );
     };
